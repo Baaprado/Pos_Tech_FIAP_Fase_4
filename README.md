@@ -10,16 +10,21 @@ tomada de decisão. Além disso, solicitaram que fosse desenvolvido um modelo
 de Machine Learning para fazer o forecasting do preço do petróleo.
 
 Seu objetivo é:
+
 • Criar um dashboard interativo com ferramentas à sua escolha.
+
 • Seu dashboard deve fazer parte de um storytelling que traga insights
 relevantes sobre a variação do preço do petróleo, como situações
 geopolíticas, crises econômicas, demanda global por energia e etc. Isso
 pode te ajudar com seu modelo. É obrigatório que você traga pelo menos
 4 (quatro) insights neste desafio.
+
 • Criar um modelo de Machine Learning que faça a previsão do preço do
 petróleo diariamente (lembre-se de time series). Esse modelo deve estar
 contemplado em seu storytelling e deve conter o código que você
 trabalhou, analisando as performances do modelo.
+
 • Criar um plano para fazer o deploy em produção do modelo, com as
 ferramentas que são necessárias.
+
 • Faça um MVP do seu modelo em produção utilizando o Streamlit.
