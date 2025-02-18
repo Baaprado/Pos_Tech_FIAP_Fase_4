@@ -17,8 +17,6 @@ Este projeto tem como objetivo analisar dados históricos do preço do petróleo
 
 ## Como Executar
 
-### 1. Configuração do Ambiente
-
 Clone este repositório e navegue até o diretório do projeto:
 ```sh
 git clone https://github.com/Baaprado/Pos_Tech_FIAP_Fase_4.git
@@ -27,48 +25,24 @@ cd Pos_Tech_FIAP_Fase_4
 
 Instale as dependências necessárias:
 ```sh
-pip install -r requirements.txt
-```
-*Caso o arquivo `requirements.txt` não esteja disponível, instale manualmente:*
-```sh
-pip install streamlit pandas matplotlib prophet requests fastapi uvicorn
+pip install streamlit pandas matplotlib prophet requests
 ```
 
-### 2. Executando o Notebook de Análise
-
-Abra e execute o notebook para visualizar o tratamento dos dados e as análises realizadas:
-```sh
-jupyter notebook Analise_e_Modelos_Preço_do_Petróleo.ipynb
-```
-
-### 3. Executando o Dashboard Interativo
-
-Para visualizar o dashboard, execute o seguinte comando no terminal:
-```sh
-streamlit run Dashboard_Petroleo.py
-```
-
-### 4. Executando a API
-
-A API foi criada para servir previsões do modelo. Para executá-la, rode o seguinte comando:
-```sh
-uvicorn api:app --reload
-```
-
-A API estará disponível em `http://127.0.0.1:8000/docs`.
-
-### 5. Executando o Aplicativo de Interação com o Modelo
-
-Para interagir com o modelo através do Streamlit:
+Execute o aplicativo interativo:
 ```sh
 streamlit run app.py
+```
+
+Execute o dashboard interativo:
+```sh
+streamlit run Dashboard_Petroleo.py
 ```
 
 ---
 
 ## Sobre o Problema
 
-Você foi contratado(a) para uma consultoria e recebeu a missão de analisar os dados históricos do preço do petróleo Brent, disponíveis no site do IPEA. A base de dados contém duas colunas: **data** e **preço (em dólares)**.
+Você foi contratado(a) para uma consultoria e recebeu a missão de analisar os dados históricos do preço do petróleo Brent, disponíveis no site do IPEA. A base de dados contém duas colunas: **data** e **preço (em dólares)**. 
 
 Um grande cliente do setor solicitou um **dashboard interativo** para fornecer insights sobre a variação do preço do petróleo. Além disso, também requisitou um **modelo de Machine Learning** para prever os preços futuros do petróleo.
 
@@ -92,5 +66,6 @@ Um grande cliente do setor solicitou um **dashboard interativo** para fornecer i
 Caso tenha dúvidas ou queira contribuir com o projeto, sinta-se à vontade para abrir uma issue ou pull request!
 
 ---
+
 
 📌 Desenvolvido por [Barbara Prado e Edvaldo Torres](https://github.com/Baaprado)
