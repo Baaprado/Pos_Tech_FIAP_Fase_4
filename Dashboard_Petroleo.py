@@ -28,7 +28,8 @@ df_tratado = df_tratado[['DAT_MEDICAO','DAT_MES_MEDICAO','NUM_DIA_SEMANA','NME_M
 
 min_data = df_tratado['DAT_MEDICAO'].min().date()
 max_data = df_tratado['DAT_MEDICAO'].max().date()
-anos_disponiveis = sorted(df_tratado['NUM_ANO'].unique())  
+anos_disponiveis = sorted(df_tratado['NUM_ANO'].unique())
+anos_disponiveis = [ano for ano in anos_disponiveis if ano not in [2019, 2025]]
 
 anos_selecionados = st.sidebar.multiselect("Selecione os anos", options=anos_disponiveis, default=anos_disponiveis)
 ano_mes_inicio = st.sidebar.date_input('Data início', value=min_data, min_value=min_data, max_value=max_data)
