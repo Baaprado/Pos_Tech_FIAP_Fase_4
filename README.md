@@ -1,50 +1,96 @@
 # Pos_Tech_FIAP_Fase_4
 
-Passos do projeto:
+## Visão Geral
 
-1. Extração, tratamento e análise exploratória dos dados do ipea no arquivo ˜Analise_e_Modelos_Preço_do_Petróleo.ipynb˜
-2. Criação de um dashboard interativo via Streamlit no arquivo "Dashboard_Petroleo.py"
-3. Testes e criação do modelo no arquivo "Analise_e_Modelos_Preço_do_Petróleo.ipynb"
-4. Criação do arquivo "modelo_prophet.pkl"
-5. Criação da API via FastAPI no arquivo "api.py"
-6. Criação de um app para interação com o modelo via Streamlit no arquivo "app.py"
+Este projeto tem como objetivo analisar dados históricos do preço do petróleo Brent, construir um dashboard interativo e desenvolver um modelo de previsão utilizando Machine Learning. O modelo é integrado a uma API e um aplicativo para interação via Streamlit.
 
-Instruções:
+## Estrutura do Projeto
 
-1. Executar o notebook ˜Analise_e_Modelos_Preço_do_Petróleo.ipynb˜ para visualização do tratamento dos dados e das análises realizadas
-2. Executar o arquivo "Dashboard_Petroleo.py" e inserir o comando "streamlit run Dashboard_Petroleo.py" no terminal para acessar o dashboard
-3. Para acessar e interagir com o modelo, no terminal:
-   - Faça um clone do repositório atual: git clone https://github.com/Baaprado/Pos_Tech_FIAP_Fase_4.git
-   - Navegue até o diretório: cd Pos_Tech_FIAP_Fase_4
-   - Instale as dependências: pip install streamlit pandas matplotlib prophet requests
-   - Execute o app.py: streamlit run app.py
+1. **Extração, tratamento e análise exploratória** dos dados do IPEA no arquivo [`Analise_e_Modelos_Preço_do_Petróleo.ipynb`](Analise_e_Modelos_Preço_do_Petróleo.ipynb).
+2. **Criação de um dashboard interativo** via Streamlit no arquivo [`Dashboard_Petroleo.py`](Dashboard_Petroleo.py).
+3. **Desenvolvimento do modelo de previsão** no arquivo [`Analise_e_Modelos_Preço_do_Petróleo.ipynb`](Analise_e_Modelos_Preço_do_Petróleo.ipynb).
+4. **Geração do arquivo do modelo treinado** (`modelo_prophet.pkl`).
+5. **Criação da API** utilizando FastAPI no arquivo [`api.py`](api.py).
+6. **Desenvolvimento de um aplicativo** para interação com o modelo via Streamlit no arquivo [`app.py`](app.py).
 
-O problema:
+---
 
-Você foi contratado(a) para uma consultoria, e seu trabalho envolve
-analisar os dados de preço do petróleo brent, que pode ser encontrado no site
-do ipea. Essa base de dados histórica envolve duas colunas: data e preço (em
-dólares). Um grande cliente do segmento pediu para que a consultoria
-desenvolvesse um dashboard interativo para gerar insights relevantes para
-tomada de decisão. Além disso, solicitaram que fosse desenvolvido um modelo
-de Machine Learning para fazer o forecasting do preço do petróleo.
+## Como Executar
 
-Seu objetivo é:
+### 1. Configuração do Ambiente
 
-• Criar um dashboard interativo com ferramentas à sua escolha.
+Clone este repositório e navegue até o diretório do projeto:
+```sh
+git clone https://github.com/Baaprado/Pos_Tech_FIAP_Fase_4.git
+cd Pos_Tech_FIAP_Fase_4
+```
 
-• Seu dashboard deve fazer parte de um storytelling que traga insights
-relevantes sobre a variação do preço do petróleo, como situações
-geopolíticas, crises econômicas, demanda global por energia e etc. Isso
-pode te ajudar com seu modelo. É obrigatório que você traga pelo menos
-4 (quatro) insights neste desafio.
+Instale as dependências necessárias:
+```sh
+pip install -r requirements.txt
+```
+*Caso o arquivo `requirements.txt` não esteja disponível, instale manualmente:*
+```sh
+pip install streamlit pandas matplotlib prophet requests fastapi uvicorn
+```
 
-• Criar um modelo de Machine Learning que faça a previsão do preço do
-petróleo diariamente (lembre-se de time series). Esse modelo deve estar
-contemplado em seu storytelling e deve conter o código que você
-trabalhou, analisando as performances do modelo.
+### 2. Executando o Notebook de Análise
 
-• Criar um plano para fazer o deploy em produção do modelo, com as
-ferramentas que são necessárias.
+Abra e execute o notebook para visualizar o tratamento dos dados e as análises realizadas:
+```sh
+jupyter notebook Analise_e_Modelos_Preço_do_Petróleo.ipynb
+```
 
-• Faça um MVP do seu modelo em produção utilizando o Streamlit.
+### 3. Executando o Dashboard Interativo
+
+Para visualizar o dashboard, execute o seguinte comando no terminal:
+```sh
+streamlit run Dashboard_Petroleo.py
+```
+
+### 4. Executando a API
+
+A API foi criada para servir previsões do modelo. Para executá-la, rode o seguinte comando:
+```sh
+uvicorn api:app --reload
+```
+
+A API estará disponível em `http://127.0.0.1:8000/docs`.
+
+### 5. Executando o Aplicativo de Interação com o Modelo
+
+Para interagir com o modelo através do Streamlit:
+```sh
+streamlit run app.py
+```
+
+---
+
+## Sobre o Problema
+
+Você foi contratado(a) para uma consultoria e recebeu a missão de analisar os dados históricos do preço do petróleo Brent, disponíveis no site do IPEA. A base de dados contém duas colunas: **data** e **preço (em dólares)**.
+
+Um grande cliente do setor solicitou um **dashboard interativo** para fornecer insights sobre a variação do preço do petróleo. Além disso, também requisitou um **modelo de Machine Learning** para prever os preços futuros do petróleo.
+
+### Objetivos do Projeto
+
+- Criar um **dashboard interativo** utilizando ferramentas adequadas.
+- Integrar o dashboard em um **storytelling** com insights relevantes sobre variações no preço do petróleo (ex: impactos geopolíticos, crises econômicas, demanda global de energia, etc.).
+- Desenvolver um **modelo de Machine Learning para previsão de preços** considerando séries temporais.
+- Analisar e documentar a performance do modelo.
+- Criar um **plano de deploy** para disponibilizar o modelo em produção.
+- Implementar um **MVP do modelo** usando Streamlit para interação com o usuário final.
+
+---
+
+## Tecnologias Utilizadas
+
+- **Linguagem**: Python
+- **Bibliotecas**: Pandas, Matplotlib, Prophet, FastAPI, Streamlit, Requests
+- **Ferramentas**: Jupyter Notebook, VSCode, Google Colab
+
+Caso tenha dúvidas ou queira contribuir com o projeto, sinta-se à vontade para abrir uma issue ou pull request!
+
+---
+
+📌 Desenvolvido por [Barbara Prado e Edvaldo Torres](https://github.com/Baaprado)
