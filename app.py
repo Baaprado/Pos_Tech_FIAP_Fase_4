@@ -97,8 +97,9 @@ if st.sidebar.button("Prever"):
 
 st.markdown("---")
 st.markdown("""
-**Desenvolvido por:** [Barbara Rodrigues Prado e Edvaldo Torres]  
+**Trabalho desenvolvido para a Fase 4 da Pós Tech FIAP**
+**Desenvolvido por:** Barbara Rodrigues Prado RM357381 e Edvaldo Torres RM357417
 **Fonte dos dados:** IPEA  
-**Ferramentas utilizadas:** Python, Streamlit, Prophet  
+**Ferramentas utilizadas:** Python, Streamlit  
 **Repositório do projeto:** [GitHub](https://github.com/Baaprado/Pos_Tech_FIAP_Fase_4)
 """)
