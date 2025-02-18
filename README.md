@@ -7,7 +7,7 @@ Passos do projeto:
 3. Testes e criação do modelo no arquivo "Analise_e_Modelos_Preço_do_Petróleo.ipynb"
 4. Criação do arquivo "modelo_prophet.pkl"
 5. Criação da API via FastAPI no arquivo "api.py"
-6. Criação de um app para interação com o modelo no arquivo "app.py"
+6. Criação de um app para interação com o modelo via Streamlit no arquivo "app.py"
 
 Instruções:
 
