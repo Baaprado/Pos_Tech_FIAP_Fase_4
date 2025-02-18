@@ -13,12 +13,10 @@ st.title("Previsão do Preço do Petróleo Brent com Prophet")
 st.sidebar.title("Sobre o Projeto")
 st.sidebar.markdown("""
 **Problema:**
-Você foi contratado(a) para uma consultoria, e seu trabalho envolve analisar os dados de preço do petróleo Brent, que pode ser encontrado no site do IPEA. Essa base de dados histórica envolve duas colunas: data e preço (em dólares). Um grande cliente do segmento pediu para que a consultoria desenvolvesse um dashboard interativo para gerar insights relevantes para tomada de decisão. Além disso, solicitaram que fosse desenvolvido um modelo de Machine Learning para fazer o forecasting do preço do petróleo.
-
-**Objetivo:**
-- Criar um dashboard interativo com ferramentas à sua escolha.
-- Desenvolver um modelo de Machine Learning para previsão diária do preço do petróleo.
-- Fazer o deploy do modelo em produção e criar um MVP utilizando o Streamlit.
+Você foi contratado(a) para analisar os dados históricos do preço do petróleo Brent, disponíveis no site do IPEA, 
+e desenvolver um dashboard interativo para gerar insights relevantes para a tomada de decisão de um cliente.
+Além disso, é necessário criar um modelo de Machine Learning para previsão diária do preço do petróleo, 
+realizar o deploy do modelo em produção e criar um MVP utilizando o Streamlit.
 """)
 
 st.header("Carregando o Modelo Prophet")
@@ -84,8 +82,15 @@ if st.sidebar.button("Prever"):
         future = modelo_prophet.make_future_dataframe(periods=dias_previsao, freq='D')
         forecast = modelo_prophet.predict(future)
 
+        forecast_renamed = forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].rename(columns={
+            'ds': 'Data',
+            'yhat': 'Preço Previsto (USD)',
+            'yhat_lower': 'Limite Inferior',
+            'yhat_upper': 'Limite Superior'
+        })
+
         st.header("Previsão do Preço do Brent")
-        st.write(forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail(dias_previsao))
+        st.write(forecast_renamed.tail(dias_previsao))  # Exibindo as previsões com os novos nomes de coluna
 
         st.header("Gráfico de Previsão")
         fig, ax = plt.subplots(figsize=(12, 6))
