@@ -91,7 +91,7 @@ fig4.update_layout(xaxis_title='Data de Medição',
 
 # Exibir no Streamlit
 
-st.title("Fase 4 - Tech Challenge - Análise de Pretróleo Bruto")
+st.title("Análise de Pretróleo Bruto")
 
 st.markdown('''
             Este dashboard tem como objetivo fornecer uma visão abrangente do mercado global de petróleo bruto nos últimos cinco anos (2020-2024), utilizando como referência o preço do petróleo Brent, um dos principais indicadores do mercado. O petróleo Brent é um tipo de petróleo bruto extraído no Mar do Norte, amplamente utilizado como referência para precificar o petróleo em diversas regiões do mundo. Abaixo, apresentamos gráficos que ilustram a evolução e a variação dos preços ao longo desse período, permitindo uma análise mais detalhada das tendências do setor.
@@ -180,7 +180,7 @@ st.markdown('''
 
 st.markdown("---")
 st.markdown("""
-**Trabalho desenvolvido para a Fase 4 da Pós Tech FIAP**
+**Trabalho desenvolvido para:** Fase 4 do curso de Data Analytics da Pós Tech FIAP
 **Desenvolvido por:** Barbara Rodrigues Prado RM357381 e Edvaldo Torres RM357417
 **Fonte dos dados:** IPEA  
 **Ferramentas utilizadas:** Python, Streamlit  

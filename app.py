@@ -97,7 +97,7 @@ if st.sidebar.button("Prever"):
 
 st.markdown("---")
 st.markdown("""
-**Trabalho desenvolvido para a Fase 4 da Pós Tech FIAP**
+**Trabalho desenvolvido para:** Fase 4 do curso de Data Analytics da Pós Tech FIAP
 **Desenvolvido por:** Barbara Rodrigues Prado RM357381 e Edvaldo Torres RM357417
 **Fonte dos dados:** IPEA  
 **Ferramentas utilizadas:** Python, Streamlit  
