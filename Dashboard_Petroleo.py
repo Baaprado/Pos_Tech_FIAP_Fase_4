@@ -16,13 +16,14 @@ df = pd.read_csv(csv_data, sep=';', decimal=',')
 df = df.drop(df.columns[2], axis=1)
 df.columns = ['DAT_MEDICAO', 'VLR_PRECO_PRETROLEO_BRUTO_DOLAR_BRENT']
 df['DAT_MEDICAO'] = pd.to_datetime(df['DAT_MEDICAO'])
-df = df[df['DAT_MEDICAO'] >= '2019-01-01'].reset_index(drop=True)
+df = df[df['DAT_MEDICAO'] >= '2020-01-01'].reset_index(drop=True)
 df_tratado = df.copy()
 df_tratado = df_tratado.dropna().reset_index(drop=True)
 df_tratado['DAT_MES_MEDICAO'] = df_tratado['DAT_MEDICAO'].dt.strftime('%Y-%m')
 df_tratado['NUM_DIA_SEMANA'] = df_tratado['DAT_MEDICAO'].dt.dayofweek
 df_tratado['NUM_ANO'] = df_tratado['DAT_MEDICAO'].dt.year
 df_tratado['NME_MES'] = df_tratado['DAT_MEDICAO'].dt.strftime("%b")
+df_tratado = df_tratado[(df_tratado['NUM_ANO'] >= 2020) & (df_tratado['NUM_ANO'] <= 2024)]
 df_tratado = df_tratado[['DAT_MEDICAO', 'DAT_MES_MEDICAO', 'NUM_DIA_SEMANA', 'NME_MES', 'NUM_ANO', 'VLR_PRECO_PRETROLEO_BRUTO_DOLAR_BRENT']]
 df_tratado = df_tratado[['DAT_MEDICAO','DAT_MES_MEDICAO','NUM_DIA_SEMANA','NME_MES','NUM_ANO','VLR_PRECO_PRETROLEO_BRUTO_DOLAR_BRENT']]
 
