@@ -96,7 +96,7 @@ if st.sidebar.button("Prever"):
         fig, ax = plt.subplots(figsize=(12, 6))
         modelo_prophet.plot(forecast, ax=ax)
         plt.xlabel("Data")
-        plt.ylabel("Preço do Brent (USD)")
+        plt.ylabel("Preço do Petróleo (USD)")
         plt.title("Previsão do Preço do Petróleo Brent")
         st.pyplot(fig)
 
