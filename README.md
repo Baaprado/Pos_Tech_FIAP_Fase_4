@@ -28,14 +28,14 @@ Instale as dependências necessárias:
 pip install streamlit pandas matplotlib prophet requests
 ```
 
-Execute o aplicativo interativo:
-```sh
-streamlit run app.py
-```
-
 Execute o dashboard interativo:
 ```sh
 streamlit run Dashboard_Petroleo.py
+```
+
+Execute o aplicativo interativo:
+```sh
+streamlit run app.py
 ```
 
 ---
