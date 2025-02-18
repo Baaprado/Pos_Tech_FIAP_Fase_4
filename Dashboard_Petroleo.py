@@ -177,3 +177,11 @@ st.markdown('''
 
             A análise revela que o mercado de petróleo Brent é suscetível a flutuações significativas, com períodos de alta volatilidade, como Fevereiro e Março, e outros de maior estabilidade, como Novembro e Dezembro. Os preços têm oscilado principalmente entre 70 e 90 USD nos últimos anos, com 2020 sendo um ano atípico devido à pandemia.
             ''')
+
+st.markdown("---")
+st.markdown("""
+**Desenvolvido por:** [Barbara Rodrigues Prado e Edvaldo Torres]  
+**Fonte dos dados:** IPEA  
+**Ferramentas utilizadas:** Python, Streamlit  
+**Repositório do projeto:** [GitHub](https://github.com/Baaprado/Pos_Tech_FIAP_Fase_4)
+""")
