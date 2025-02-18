@@ -14,7 +14,7 @@ response.raise_for_status()
 csv_data = StringIO(response.text)
 df = pd.read_csv(csv_data, sep=';', decimal=',')
 df = df.drop(df.columns[2], axis=1)
-df.columns = ['DAT_MEDICAO', 'VLR_PRECO_PRETROLEO_BRUTO_DOLAR_BRENT']
+df.columns = ['DAT_MEDICAO', 'VLR_PRECO_PETROLEO_BRUTO_DOLAR_BRENT']
 df['DAT_MEDICAO'] = pd.to_datetime(df['DAT_MEDICAO'])
 df = df[df['DAT_MEDICAO'] >= '2020-01-01'].reset_index(drop=True)
 df_tratado = df.copy()
@@ -24,8 +24,8 @@ df_tratado['NUM_DIA_SEMANA'] = df_tratado['DAT_MEDICAO'].dt.dayofweek
 df_tratado['NUM_ANO'] = df_tratado['DAT_MEDICAO'].dt.year
 df_tratado['NME_MES'] = df_tratado['DAT_MEDICAO'].dt.strftime("%b")
 df_tratado = df_tratado[(df_tratado['NUM_ANO'] >= 2020) & (df_tratado['NUM_ANO'] <= 2024)]
-df_tratado = df_tratado[['DAT_MEDICAO', 'DAT_MES_MEDICAO', 'NUM_DIA_SEMANA', 'NME_MES', 'NUM_ANO', 'VLR_PRECO_PRETROLEO_BRUTO_DOLAR_BRENT']]
-df_tratado = df_tratado[['DAT_MEDICAO','DAT_MES_MEDICAO','NUM_DIA_SEMANA','NME_MES','NUM_ANO','VLR_PRECO_PRETROLEO_BRUTO_DOLAR_BRENT']]
+df_tratado = df_tratado[['DAT_MEDICAO', 'DAT_MES_MEDICAO', 'NUM_DIA_SEMANA', 'NME_MES', 'NUM_ANO', 'VLR_PRECO_PETROLEO_BRUTO_DOLAR_BRENT']]
+df_tratado = df_tratado[['DAT_MEDICAO','DAT_MES_MEDICAO','NUM_DIA_SEMANA','NME_MES','NUM_ANO','VLR_PRECO_PETROLEO_BRUTO_DOLAR_BRENT']]
 
 min_data = df_tratado['DAT_MEDICAO'].min().date()
 max_data = df_tratado['DAT_MEDICAO'].max().date()
@@ -48,7 +48,7 @@ if anos_selecionados:
 
 fig1 = px.line(df_filtrado, 
                 x='DAT_MEDICAO', 
-                y='VLR_PRECO_PRETROLEO_BRUTO_DOLAR_BRENT', 
+                y='VLR_PRECO_PETROLEO_BRUTO_DOLAR_BRENT', 
                 title='Série Temporal do Preço do Petróleo Bruto (Brent)',
                 markers= True,
                 color='NUM_ANO',
@@ -61,25 +61,25 @@ fig1.update_layout(xaxis_title='Data de Medição',
 
 fig2 = px.box(df_filtrado, 
              x="NME_MES", 
-             y="VLR_PRECO_PRETROLEO_BRUTO_DOLAR_BRENT",
+             y="VLR_PRECO_PETROLEO_BRUTO_DOLAR_BRENT",
              title="Variação do Preço do Petróleo Brent ao longo dos meses",
-             labels={"DAT_MES_MEDICAO": "Mês", "VLR_PRECO_PRETROLEO_BRUTO_DOLAR_BRENT": "Preço do Petróleo (USD)"}
+             labels={"DAT_MES_MEDICAO": "Mês", "VLR_PRECO_PETROLEO_BRUTO_DOLAR_BRENT": "Preço do Petróleo (USD)"}
              )
 
 fig2.update_layout(xaxis_title='Comportamento por mês')  
 
 fig3 = px.histogram(df_filtrado, 
-                   x="VLR_PRECO_PRETROLEO_BRUTO_DOLAR_BRENT", 
+                   x="VLR_PRECO_PETROLEO_BRUTO_DOLAR_BRENT", 
                    nbins=30,  
                    title="Histograma da Distribuição de Preços do Petróleo Brent",
-                   labels={"VLR_PRECO_PRETROLEO_BRUTO_DOLAR_BRENT": "Preço do Petróleo (USD)"},
+                   labels={"VLR_PRECO_PETROLEO_BRUTO_DOLAR_BRENT": "Preço do Petróleo (USD)"},
                    color_discrete_sequence=["royalblue"])
 
 fig3.update_layout(bargap=0.1)  
 
 fig4 = px.line(df_filtrado.groupby('DAT_MES_MEDICAO').last().reset_index(), 
                 x='NME_MES', 
-                y='VLR_PRECO_PRETROLEO_BRUTO_DOLAR_BRENT', 
+                y='VLR_PRECO_PETROLEO_BRUTO_DOLAR_BRENT', 
                 title='Fechamento mensal do Preço do Petróleo Bruto (Brent)',
                 markers= True,
                 color='NUM_ANO',
@@ -102,9 +102,9 @@ met1,met2,met3, met4, met5 = st.columns(5)
 with met1:
     st.metric("Última modificação da base", df_tratado['DAT_MEDICAO'].max().strftime('%d/%m/%Y'))
 with met2:
-    st.metric("Último Preço Pretróleo", f"${df_tratado[df_tratado['DAT_MEDICAO']==df_tratado['DAT_MEDICAO'].max()]['VLR_PRECO_PRETROLEO_BRUTO_DOLAR_BRENT'].sum():,.2f}")
+    st.metric("Último Preço Pretróleo", f"${df_tratado[df_tratado['DAT_MEDICAO']==df_tratado['DAT_MEDICAO'].max()]['VLR_PRECO_PETROLEO_BRUTO_DOLAR_BRENT'].sum():,.2f}")
 with met3:
-    st.metric("Valor Médio do Ultimo Ano", f"${df_tratado[df_tratado['NUM_ANO'] == df_tratado['NUM_ANO'].max() - 1]['VLR_PRECO_PRETROLEO_BRUTO_DOLAR_BRENT'].mean():,.2f}")
+    st.metric("Valor Médio do Ultimo Ano", f"${df_tratado[df_tratado['NUM_ANO'] == df_tratado['NUM_ANO'].max() - 1]['VLR_PRECO_PETROLEO_BRUTO_DOLAR_BRENT'].mean():,.2f}")
 
 
 st.header("Análise temporal do preço do petróleo")
